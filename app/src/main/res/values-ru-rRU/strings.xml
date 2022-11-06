@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Deeplinker</string>
+    <string name="roll">Открыть</string>
+    <string name="name">Диплинк</string>
+    <string name="errorMsg">Кажется, неправильный диплинк!</string>
+</resources>
