@@ -2,5 +2,5 @@
     <string name="app_name">Deeplinker</string>
     <string name="roll">open</string>
     <string name="name">Deeplink</string>
-    <string name="errorMsg">Wrong link!</string>
+    <string name="errorMsg">Wrong link, sorry!</string>
 </resources>
