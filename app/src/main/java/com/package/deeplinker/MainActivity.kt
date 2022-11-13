@@ -9,7 +9,7 @@ import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import com.example.diceroller.R
+import com.example.deeplinker.R
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
