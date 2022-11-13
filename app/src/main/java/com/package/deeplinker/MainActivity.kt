@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import com.example.deeplinker.R
+import com.google.android.material.textfield.TextInputLayout
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -24,7 +25,7 @@ class MainActivity : AppCompatActivity() {
             val editTextView: TextView = findViewById(R.id.editText)
             val deeplinkNew = editTextView.text.toString()
             arrayOfString += deeplinkNew
-            val history: TextView = findViewById(R.id.textView)
+            val history: TextView = findViewById(R.id.historyList)
             history.text =
                 Arrays.toString(arrayOfString.reversedArray()).replace(",", "\n").replace("[", "")
                     .replace("]", "")
@@ -41,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         } catch (e: ActivityNotFoundException) {
             val animShake = AnimationUtils.loadAnimation(this, R.anim.shake)
             val duration = Toast.LENGTH_SHORT
-            val editTextView: TextView = findViewById(R.id.editText)
+            val editTextView: TextInputLayout = findViewById(R.id.textInputLayout)
             editTextView.startAnimation(animShake)
             val toast = Toast.makeText(applicationContext, R.string.errorMsg, duration)
             toast.show()
