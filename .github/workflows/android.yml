@@ -24,3 +24,10 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
+    - name: Zip artifacts
+      run: zip -r assemble.zip . -i '**/build/*.apk' '**/build/*.aab' '**/build/*.aar' '**/build/*.so'
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v1
+      with:
+        name: assemble
+        path: assemble.zip
