@@ -10,22 +10,23 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import com.example.deeplinker.R
-import com.google.android.material.textfield.TextInputLayout
+import com.example.deeplinker.databinding.ActivityMainBinding
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
+    lateinit var bindingClass: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        bindingClass = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(bindingClass.root)
 
-        val openButton: Button = findViewById(R.id.button)
+        val openButton: Button = bindingClass.button
         var arrayOfString = arrayOf<String>()
         openButton.setOnClickListener {
-            val editTextView: TextView = findViewById(R.id.editText)
-            val deeplinkNew = editTextView.text.toString()
+            val deeplinkNew: String = bindingClass.editText.text.toString()
             arrayOfString += deeplinkNew
-            val history: TextView = findViewById(R.id.historyList)
+            val history: TextView = bindingClass.historyList
             history.text =
                 Arrays.toString(arrayOfString.reversedArray()).replace(",", "\n").replace("[", "")
                     .replace("]", "")
@@ -42,8 +43,7 @@ class MainActivity : AppCompatActivity() {
         } catch (e: ActivityNotFoundException) {
             val animShake = AnimationUtils.loadAnimation(this, R.anim.shake)
             val duration = Toast.LENGTH_SHORT
-            val editTextView: TextInputLayout = findViewById(R.id.textInputLayout)
-            editTextView.startAnimation(animShake)
+            bindingClass.textInputLayout.startAnimation(animShake)
             val toast = Toast.makeText(applicationContext, R.string.errorMsg, duration)
             toast.show()
         }
